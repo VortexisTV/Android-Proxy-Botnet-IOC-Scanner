@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import io.iocscanner.ScanViewModel
 
@@ -35,7 +36,9 @@ fun SettingsScreen(
     onResetDb: () -> Unit,
     onBack: () -> Unit,
 ) {
-    var apiKey by rememberSaveable { mutableStateOf("") }
+    // Prefilled with the stored key so a relaunch shows what is saved.
+    var apiKey by rememberSaveable(state.vtApiKey) { mutableStateOf(state.vtApiKey) }
+    var showKey by rememberSaveable { mutableStateOf(false) }
     var url by rememberSaveable(state.iocUpdateUrl) { mutableStateOf(state.iocUpdateUrl) }
 
     Column(
@@ -75,18 +78,24 @@ fun SettingsScreen(
                 onValueChange = { apiKey = it },
                 label = { Text("API key") },
                 singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
+                visualTransformation = if (showKey) {
+                    VisualTransformation.None
+                } else {
+                    PasswordVisualTransformation()
+                },
                 modifier = Modifier.fillMaxWidth(),
             )
             Spacer(Modifier.height(8.dp))
-            Button(
-                onClick = {
-                    onSaveKey(apiKey)
-                    apiKey = ""
-                },
-                enabled = apiKey.isNotBlank(),
-            ) {
-                Text("Save key")
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Button(
+                    onClick = { onSaveKey(apiKey) },
+                    enabled = apiKey.isNotBlank(),
+                ) {
+                    Text("Save key")
+                }
+                OutlinedButton(onClick = { showKey = !showKey }) {
+                    Text(if (showKey) "Hide key" else "Show key")
+                }
             }
             Spacer(Modifier.height(6.dp))
             Text(

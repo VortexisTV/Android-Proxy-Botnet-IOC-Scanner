@@ -42,6 +42,7 @@ class ScanViewModel(app: Application) : AndroidViewModel(app) {
         val iocDbUpdated: String = "",
         val iocCount: Int = 0,
         val vtKeySet: Boolean = false,
+        val vtApiKey: String = "",
         val vtInProgress: Boolean = false,
         val vtProgress: String = "",
         val iocUpdateUrl: String = "",
@@ -69,6 +70,7 @@ class ScanViewModel(app: Application) : AndroidViewModel(app) {
                 applyDbInfo(it, index).copy(
                     ready = index != null,
                     vtKeySet = settings.vtApiKey.isNotBlank(),
+                    vtApiKey = settings.vtApiKey,
                     iocUpdateUrl = settings.iocUpdateUrl,
                     statusText = if (index == null) "Failed to load IOC database" else "",
                 )
@@ -203,7 +205,8 @@ class ScanViewModel(app: Application) : AndroidViewModel(app) {
 
     fun saveVtKey(key: String) {
         settings.vtApiKey = key
-        _state.update { it.copy(vtKeySet = key.isNotBlank()) }
+        val stored = settings.vtApiKey // read back the trimmed, persisted value
+        _state.update { it.copy(vtKeySet = stored.isNotBlank(), vtApiKey = stored) }
     }
 
     fun updateIocDb(url: String) {

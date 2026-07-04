@@ -12,19 +12,35 @@ import androidx.security.crypto.MasterKey
  */
 class SettingsStore(context: Context) {
 
-    private val prefs: SharedPreferences = try {
-        val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
-        EncryptedSharedPreferences.create(
-            context,
-            "secure_prefs",
-            masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
-        )
-    } catch (e: Exception) {
-        context.getSharedPreferences("plain_prefs", Context.MODE_PRIVATE)
+    private val prefs: SharedPreferences = createPrefs(context)
+
+    private fun createPrefs(context: Context): SharedPreferences {
+        repeat(2) { attempt ->
+            try {
+                val masterKey = MasterKey.Builder(context)
+                    .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                    .build()
+                return EncryptedSharedPreferences.create(
+                    context,
+                    "secure_prefs",
+                    masterKey,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
+                )
+            } catch (e: Exception) {
+                // Cheap boxes sometimes wipe the keystore across reboots, which
+                // leaves secure_prefs undecryptable and create() throwing forever.
+                // Drop the unreadable file once so the retry starts clean instead
+                // of the app losing settings persistence entirely.
+                if (attempt == 0) {
+                    try {
+                        context.deleteSharedPreferences("secure_prefs")
+                    } catch (_: Exception) {
+                    }
+                }
+            }
+        }
+        return context.getSharedPreferences("plain_prefs", Context.MODE_PRIVATE)
     }
 
     var vtApiKey: String
