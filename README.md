@@ -36,6 +36,9 @@ Android proxy botnets and residential-proxy ("proxyware") abuse:
    and offered via the share sheet. On a box with no share targets:
    `adb pull /sdcard/Android/data/io.iocscanner/files/reports/`.
 
+## VirusTotal Link of APK
+https://www.virustotal.com/gui/file/1521c58e01a05cc3e4c5f7ade8c9689aa8c8eade2aeb88d67b964971299dd288?nocache=1
+
 ## Updatable IOC database
 
 The bundled database lives at `app/src/main/assets/iocs.json`. Every entry carries
