@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+color banner_bg
+color bg
+drawable ic_launcher
+drawable tv_banner
+string app_name
+style Theme.IocScanner
+xml file_paths

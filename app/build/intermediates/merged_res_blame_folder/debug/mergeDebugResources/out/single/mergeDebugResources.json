@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "io.iocscanner.app-debug-43:/drawable_tv_banner.xml.flat",
+        "source": "io.iocscanner.app-main-45:/drawable/tv_banner.xml"
+    },
+    {
+        "merged": "io.iocscanner.app-debug-43:/xml_file_paths.xml.flat",
+        "source": "io.iocscanner.app-main-45:/xml/file_paths.xml"
+    },
+    {
+        "merged": "io.iocscanner.app-debug-43:/drawable_ic_launcher.xml.flat",
+        "source": "io.iocscanner.app-main-45:/drawable/ic_launcher.xml"
+    }
+]

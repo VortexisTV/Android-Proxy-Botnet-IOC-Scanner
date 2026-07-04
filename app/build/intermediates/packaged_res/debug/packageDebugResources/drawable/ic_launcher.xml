@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- dark circular backdrop -->
+    <path
+        android:fillColor="#16202A"
+        android:pathData="M12,12m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+    <!-- shield -->
+    <path
+        android:fillColor="#64B5F6"
+        android:pathData="M12,2.5L4.5,5.6v5.1c0,4.6 3.2,8.9 7.5,10 4.3,-1.1 7.5,-5.4 7.5,-10V5.6L12,2.5z" />
+    <!-- scan pulse -->
+    <path
+        android:fillColor="#0E141B"
+        android:pathData="M12,6.5a5,5 0,1 0,0 10a5,5 0,1 0,0 -10zM12,8.2a3.3,3.3 0,1 1,0 6.6a3.3,3.3 0,1 1,0 -6.6z" />
+    <path
+        android:fillColor="#0E141B"
+        android:pathData="M12,10.4m-1.4,0a1.4,1.4 0,1 1,2.8 0a1.4,1.4 0,1 1,-2.8 0" />
+</vector>

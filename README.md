@@ -12,6 +12,35 @@ Android proxy botnets and residential-proxy ("proxyware") abuse:
 | **Popa / NetNut** | ~2M-device proxy botnet feeding the NetNut residential proxy platform (FBI seizure, July 2026); Popa is a Vo1d-linked plugin | Control domains (`gmslb.net`, `safernetwork.io`, `tera-home.com`, `ninjatech.io`), NetNut domains, names of streaming apps observed bundling the proxy component (CRICFy, DooFlix, Flixoid...) |
 | **PEACHPIT / PROXYLIB / proxyware** | Ad-fraud and bandwidth-selling SDKs embedded in apps (LumiApps, Netas, Bright Data, Honeygain, IPRoyal Pawns...) | 21 SDK identifiers matched against package names *and* declared service classes, plus provider domains |
 
+### Broader IoT / Android-TV botnet ecosystem (Nokia Deepfield ERT tracking)
+
+These families share the same cheap-Android-TV / IoT attack surface. The Android-TV
+ones (cecbot, katana, kimwolf, maskify, mossadproxy, drifter) can match on device;
+the Mirai-lineage Linux DDoS bots mostly contribute **C2 domains and IPs** for
+network-side detection and router/Pi-hole hunting rather than package hits.
+
+| Family | What it is |
+|---|---|
+| **aisuru** | Mirai-derivative DDoS botnet, active since August 2024 |
+| **cecbot** | Android TV botnet with HDMI-CEC abuse, successor to Katana |
+| **cecilio** | CatDDoS derivative with modified RC4 cipher, OpenNIC C2 |
+| **datasurge** | Mirai-lineage bot with no self-propagation; competitor-killing scanner larger than its DDoS engine, plus operator RAT features |
+| **drifter** | Independent DDoS botnet on the ADB attack surface, CCTV-themed C2 domains |
+| **jackskid** | Mirai variant sharing code lineage with Aisuru, DoH C2 via mbedTLS |
+| **katana** | Mirai variant with on-device compiled rootkit, targeting Android TV set-top boxes |
+| **kbotne** | Mirai-lineage DDoS botnet, WebSocket C2 on port 80, hex-encoded config, a broken Android APK |
+| **kimwolf** | Dual-purpose residential proxy and DDoS botnet, 3M+ devices observed |
+| **maskify** | Dual-purpose proxy/DDoS botnet with ENS, IPFS, and a custom P2P mesh |
+| **mossadproxy** | Android TV/IoT DDoS botnet via ADB, operationally linked to the ecosystem |
+| **potassium** | Mirai variant with SHELL/SHOUT reverse-shell protocol, three rotating campaigns from one codebase |
+| **vibenet** | Custom DDoS-and-proxy family; no-libc Linux build ships its own TLS/QUIC/HTTP3 stack for Layer-7 floods behind a browser fingerprint, on-chain ENS C2 |
+
+> Note: `keys.csv` from the Deepfield repo (RC4/ChaCha20/ENS decryption keys, APK
+> cert serials) is deliberately **not** imported — those are sample-unpacking
+> material, not indicators observable on a running device. Non-Android sample
+> hashes (ELF ARM/MIPS) are included: they won't match an installed APK but are
+> valid for VirusTotal lookups and future on-disk file hashing.
+
 ## What the scan does
 
 1. **Device identity** - model/product/board strings vs. published infected-firmware
@@ -116,6 +145,8 @@ Seed IOCs were compiled 2026-07-04 from:
 - XLab-Qianxin: [Long Live the Vo1d Botnet](https://blog.xlab.qianxin.com/long-live-the-vo1d_botnet/)
 - DesktopECHO: [T95-H616-Malware](https://github.com/DesktopECHO/T95-H616-Malware)
 - Krebs on Security: ["Popa" botnet linked to publicly-traded Israeli firm](https://krebsonsecurity.com/2026/06/popa-botnet-linked-to-publicly-traded-israeli-firm/) and [FBI seizes NetNut proxy platform](https://krebsonsecurity.com/2026/07/fbi-seizes-netnut-proxy-platform-popa-botnet/)
+- Qurium: [Finding Popa](https://www.qurium.org/forensics/finding-popa/) - ~50 backend/bootstrap domains, SDK library names (libneunative/libalphasdk/io.popanet), bundled-app hashes, TCP/6000 relay protocol
+- Nokia Deepfield: [public-research popa/iocs](https://github.com/deepfield/public-research) - machine-readable director IPs, 370-node relay fleet snapshot, Google Drive payload channel (db v2, added 2026-07-04)
 - Flo5k5: [proxyware-blocklist](https://github.com/Flo5k5/proxyware-blocklist)
 - The Hacker News: [PROXYLIB / LumiApps proxyware apps](https://thehackernews.com/2024/04/malicious-apps-caught-secretly-turning.html)
 

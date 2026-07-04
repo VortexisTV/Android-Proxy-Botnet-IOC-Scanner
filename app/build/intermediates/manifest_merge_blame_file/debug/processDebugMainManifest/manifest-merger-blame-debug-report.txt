@@ -1,0 +1,179 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.iocscanner"
+4    android:versionCode="1"
+5    android:versionName="0.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Needed to reach VirusTotal and fetch IOC database updates. -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:6:5-67
+12-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:7:22-76
+14    <!-- Security scanner: must enumerate every installed package to match IOCs. -->
+15    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+15-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:9:5-11:53
+15-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:10:9-61
+16
+17    <!-- Runs on Android TV / Google TV as well as phones and tablets. -->
+18    <uses-feature
+18-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:14:5-16:36
+19        android:name="android.software.leanback"
+19-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:15:9-49
+20        android:required="false" />
+20-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:16:9-33
+21    <uses-feature
+21-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:17:5-19:36
+22        android:name="android.hardware.touchscreen"
+22-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:18:9-52
+23        android:required="false" />
+23-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:19:9-33
+24
+25    <permission
+25-->[androidx.core:core:1.13.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\760927ce037121bf0feb73d12d96af7f\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+26        android:name="io.iocscanner.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+26-->[androidx.core:core:1.13.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\760927ce037121bf0feb73d12d96af7f\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+27        android:protectionLevel="signature" />
+27-->[androidx.core:core:1.13.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\760927ce037121bf0feb73d12d96af7f\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+28
+29    <uses-permission android:name="io.iocscanner.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+29-->[androidx.core:core:1.13.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\760927ce037121bf0feb73d12d96af7f\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+29-->[androidx.core:core:1.13.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\760927ce037121bf0feb73d12d96af7f\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+30
+31    <application
+31-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:21:5-52:19
+32        android:allowBackup="false"
+32-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:22:9-36
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.13.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\760927ce037121bf0feb73d12d96af7f\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+34        android:banner="@drawable/tv_banner"
+34-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:23:9-45
+35        android:debuggable="true"
+36        android:extractNativeLibs="false"
+37        android:icon="@drawable/ic_launcher"
+37-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:24:9-45
+38        android:label="@string/app_name"
+38-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:25:9-41
+39        android:supportsRtl="true"
+39-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:26:9-35
+40        android:theme="@style/Theme.IocScanner"
+40-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:27:9-48
+41        android:usesCleartextTraffic="false" >
+41-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:28:9-45
+42        <activity
+42-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:30:9-41:20
+43            android:name="io.iocscanner.MainActivity"
+43-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:31:13-41
+44            android:exported="true" >
+44-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:32:13-36
+45            <intent-filter>
+45-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:33:13-36:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:34:17-69
+46-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:34:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:35:17-77
+48-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:35:27-74
+49            </intent-filter>
+50            <intent-filter>
+50-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:37:13-40:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:34:17-69
+51-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:34:25-66
+52
+53                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+53-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:39:17-86
+53-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:39:27-83
+54            </intent-filter>
+55        </activity>
+56
+57        <provider
+58            android:name="androidx.core.content.FileProvider"
+58-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:44:13-62
+59            android:authorities="io.iocscanner.fileprovider"
+59-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:45:13-64
+60            android:exported="false"
+60-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:46:13-37
+61            android:grantUriPermissions="true" >
+61-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:47:13-47
+62            <meta-data
+62-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:48:13-50:54
+63                android:name="android.support.FILE_PROVIDER_PATHS"
+63-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:49:17-67
+64                android:resource="@xml/file_paths" />
+64-->C:\Users\Thomas\Documents\claude\proxy-ioc-scanner\app\src\main\AndroidManifest.xml:50:17-51
+65        </provider>
+66        <provider
+66-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+67            android:name="androidx.startup.InitializationProvider"
+67-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+68            android:authorities="io.iocscanner.androidx-startup"
+68-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+69            android:exported="false" >
+69-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+70            <meta-data
+70-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+72                android:value="androidx.startup" />
+72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Thomas\.gradle\caches\8.9\transforms\2fb02624f0df7793c970cb5db616eb8e\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+73            <meta-data
+73-->[androidx.lifecycle:lifecycle-process:2.8.4] C:\Users\Thomas\.gradle\caches\8.9\transforms\cb1c9a6fd6fdb5ed86756719f6f9ee66\transformed\lifecycle-process-2.8.4\AndroidManifest.xml:29:13-31:52
+74                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+74-->[androidx.lifecycle:lifecycle-process:2.8.4] C:\Users\Thomas\.gradle\caches\8.9\transforms\cb1c9a6fd6fdb5ed86756719f6f9ee66\transformed\lifecycle-process-2.8.4\AndroidManifest.xml:30:17-78
+75                android:value="androidx.startup" />
+75-->[androidx.lifecycle:lifecycle-process:2.8.4] C:\Users\Thomas\.gradle\caches\8.9\transforms\cb1c9a6fd6fdb5ed86756719f6f9ee66\transformed\lifecycle-process-2.8.4\AndroidManifest.xml:31:17-49
+76            <meta-data
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+77                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+78                android:value="androidx.startup" />
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+79        </provider>
+80
+81        <receiver
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+82            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+83            android:directBootAware="false"
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+84            android:enabled="true"
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+85            android:exported="true"
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+86            android:permission="android.permission.DUMP" >
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+88                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+91                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+94                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+95            </intent-filter>
+96            <intent-filter>
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+97                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Thomas\.gradle\caches\8.9\transforms\607e2e816a4617ee68c805d015728236\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+98            </intent-filter>
+99        </receiver>
+100    </application>
+101
+102</manifest>

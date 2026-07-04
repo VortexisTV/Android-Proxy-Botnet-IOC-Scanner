@@ -77,6 +77,29 @@ class NetworkScanner : Scanner {
                             source = ioc.source,
                         )
                     }
+                    // Popa/NetNut relay fleet communicates on TCP 6000
+                    // (s<N>.<domain>:6000). Relays churn faster than IOC lists,
+                    // so flag the port even for unknown IPs.
+                    val relayPortHit = ioc == null && c.remotePort == 6000 &&
+                        c.proto.startsWith("tcp") &&
+                        c.state != ProcConnection.STATE_LISTEN &&
+                        !c.remoteIp.startsWith("127.") &&
+                        c.remoteIp != "::1" && c.remoteIp != "0.0.0.0"
+                    if (relayPortHit && reportedRemotes.add(c.remoteIp)) {
+                        findings += Finding(
+                            scanner = name,
+                            severity = Severity.MEDIUM,
+                            title = "Outbound connection on Popa relay port 6000",
+                            subject = c.remoteIp,
+                            subjectType = SubjectType.IP,
+                            detail = "The Popa/NetNut relay fleet communicates over " +
+                                "TCP port 6000 (Qurium / Nokia Deepfield research). " +
+                                "This IP is not in the IOC list, so it may be benign " +
+                                "- check it on VirusTotal.",
+                            family = "popa-netnut",
+                            source = "qurium.org/forensics/finding-popa",
+                        )
+                    }
                     val listening = c.state == ProcConnection.STATE_LISTEN &&
                         c.localPort in proxyStylePorts
                     if (listening && reportedListens.add(c.localPort)) {

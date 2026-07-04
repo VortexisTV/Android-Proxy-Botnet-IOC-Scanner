@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="banner_bg">#16202A</color>
+    <color name="bg">#0E141B</color>
+    <string name="app_name">Proxy IOC Scanner</string>
+    <style name="Theme.IocScanner" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+    </style>
+</resources>
