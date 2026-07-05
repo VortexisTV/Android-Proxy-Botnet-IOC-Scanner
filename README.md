@@ -12,6 +12,11 @@ Android proxy botnets and residential-proxy ("proxyware") abuse:
 | **Popa / NetNut** | ~2M-device proxy botnet feeding the NetNut residential proxy platform (FBI seizure, July 2026); Popa is a Vo1d-linked plugin | Control domains (`gmslb.net`, `safernetwork.io`, `tera-home.com`, `ninjatech.io`), NetNut domains, names of streaming apps observed bundling the proxy component (CRICFy, DooFlix, Flixoid...) |
 | **PEACHPIT / PROXYLIB / proxyware** | Ad-fraud and bandwidth-selling SDKs embedded in apps (LumiApps, Netas, Bright Data, Honeygain, IPRoyal Pawns...) | 21 SDK identifiers matched against package names *and* declared service classes, plus provider domains |
 
+### Screenshots
+
+![IOC_Scanner1](screenshots/IOC_Scanner1.png)
+![IOC_Scanner2](screenshots/IOC_Scanner2.png)
+
 ### Broader IoT / Android-TV botnet ecosystem (Nokia Deepfield ERT tracking)
 
 These families share the same cheap-Android-TV / IoT attack surface. The Android-TV
